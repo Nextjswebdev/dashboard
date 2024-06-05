@@ -1,113 +1,227 @@
-import Image from "next/image";
+'use client'
+
+import { useState } from 'react';
+import Image from 'next/image';
+import 'tailwindcss/tailwind.css';
+import { FaEnvelope, FaPhoneAlt, FaMapMarkerAlt } from 'react-icons/fa'
 
 export default function Home() {
-  return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.tsx</code>
+  const [activeSection, setActiveSection] = useState('projects');
+
+  const sections = {
+    projects: (
+      <section className="fade-in">
+        <h1 className="text-3xl font-bold mb-4">Projects</h1>
+        <p className="text-lg">
+          Welcome to my Projects section! Here, I showcase some of my recent and noteworthy projects:
         </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:size-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+        {/* Add project images */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-6">
+          <div className="bg-gray-200 rounded-lg overflow-hidden">
+            <Image src="/avatar.png" alt="Project 1" width={400} height={250} />
+            <div className="p-4">
+              <h3 className="text-xl font-semibold mb-2">Project 1</h3>
+              <p>Description of Project 1 goes here.</p>
+            </div>
+          </div>
+          {/* Add more project cards */}
         </div>
-      </div>
+      </section>
+    ),
+    courses: (
+      <section className="fade-in">
+        <h1 className="text-3xl font-bold mb-4">Courses</h1>
+        <p className="text-lg">
+          Explore the courses I've completed or am currently taking to enhance my skills:
+        </p>
+        {/* Add course icons */}
+        <div className="flex items-center mt-6">
+          <FaEnvelope className="text-3xl mr-4" />
+          <div>
+            <h3 className="text-xl font-semibold mb-2">Course 1</h3>
+            <p>Description of Course 1 goes here.</p>
+          </div>
+        </div>
+        {/* Add more courses */}
+      </section>
+    ),
+    blog: (
+      <section className="fade-in">
+        <h1 className="text-3xl font-bold mb-4">Blog</h1>
+        <p className="text-lg">
+          Discover my latest thoughts and insights on various topics in my blog posts:
+        </p>
+        {/* Add blog post cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-6">
+          <div className="bg-gray-200 rounded-lg overflow-hidden">
+            <Image src="/avatar.png" alt="Blog Post 1" width={400} height={250} />
+            <div className="p-4">
+              <h3 className="text-xl font-semibold mb-2">Blog Post 1</h3>
+              <p>Summary of Blog Post 1 goes here.</p>
+            </div>
+          </div>
+          {/* Add more blog post cards */}
+        </div>
+      </section>
+    ),
+    tools: (
+      <section className="fade-in">
+        <h1 className="text-3xl font-bold mb-4">Tools</h1>
+        <p className="text-lg">
+          Check out the tools and technologies I frequently use or recommend:
+        </p>
+        {/* Add tool icons */}
+        <div className="flex items-center mt-6">
+          <FaPhoneAlt className="text-3xl mr-4" />
+          <div>
+            <h3 className="text-xl font-semibold mb-2">Tool 1</h3>
+            <p>Description of Tool 1 goes here.</p>
+          </div>
+        </div>
+        {/* Add more tools */}
+      </section>
+    ),
+    contact: (
+      <section className="fade-in">
+        <h1 className="text-3xl font-bold mb-4">Contact</h1>
+        <p className="text-lg">
+          Feel free to get in touch with me using the following contact information:
+        </p>
+        {/* Add contact icons */}
+        <div className="flex items-center mt-6">
+          <FaEnvelope className="text-3xl mr-4" />
+          <div>
+            <h3 className="text-xl font-semibold mb-2">Email</h3>
+            <p>example@email.com</p>
+          </div>
+        </div>
+        <div className="flex items-center mt-4">
+          <FaPhoneAlt className="text-3xl mr-4" />
+          <div>
+            <h3 className="text-xl font-semibold mb-2">Phone</h3>
+            <p>+1234567890</p>
+          </div>
+        </div>
+        <div className="flex items-center mt-4">
+          <FaMapMarkerAlt className="text-3xl mr-4" />
+          <div>
+            <h3 className="text-xl font-semibold mb-2">Address</h3>
+            <p>123 Street, City, Country</p>
+          </div>
+        </div>
+      </section>
+    ),
+    Help: (
+      <section className="fade-in">
+        <h1 className="text-3xl font-bold mb-4">Help</h1>
+        <p className="text-lg">
+          Need assistance or have questions? Don't hesitate to reach out to us:
+        </p>
+        {/* Add help icons */}
+        <div className="flex items-center mt-6">
+          <FaEnvelope className="text-3xl mr-4" />
+          <div>
+            <h3 className="text-xl font-semibold mb-2">Email</h3>
+            <p>help@example.com</p>
+          </div>
+        </div>
+        <div className="flex items-center mt-4">
+          <FaPhoneAlt className="text-3xl mr-4" />
+          <div>
+            <h3 className="text-xl font-semibold mb-2">Phone</h3>
+            <p>+1234567890</p>
+          </div>
+        </div>
+        <div className="flex items-center mt-4">
+          <FaMapMarkerAlt className="text-3xl mr-4" />
+          <div>
+            <h3 className="text-xl font-semibold mb-2">Address</h3>
+            <p>456 Street, City, Country</p>
+          </div>
+        </div>
+      </section>
+    ),
+    Products: (
+      <section className="fade-in">
+        <h1 className="text-3xl font-bold mb-4">Products</h1>
+        <p className="text-lg">
+          Explore our range of products designed to meet your needs:
+        </p>
+        {/* Add product images */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-6">
+          <div className="bg-gray-200 rounded-lg overflow-hidden">
+            <Image src="/avatar.png" alt="Product 1" width={400} height={250} />
+            <div className="p-4">
+              <h3 className="text-xl font-semibold mb-2">Product 1</h3>
+              <p>Description of Product 1 goes here.</p>
+            </div>
+          </div>
+          {/* Add more product cards */}
+        </div>
+      </section>
+    ),
+  };
+  
 
-      <div className="relative z-[-1] flex place-items-center before:absolute before:h-[300px] before:w-full before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 sm:before:w-[480px] sm:after:w-[240px] before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
+  return (
+    <div className="flex min-h-screen bg-gray-100">
+      <aside className="flex flex-col justify-between bg-[#5cdc91] text-white p-6 max-w-[30%] lg:sm:w-1/5 sm:w-1/3">
+        <div>
+          <nav className="mt-8">
+            <ul>
+              {Object.keys(sections).map((key) => (
+                <li key={key} className="mt-4 ">
+                  <a
+                    href="#"
+                    onClick={() => setActiveSection(key)}
+                    className={`block font-semibold px-4 py-2 rounded transition-colors duration-200 hover:text-white ${
+                      activeSection === key ? 'bg-gray-700  text-white' : ''
+                    } text-md lg:text-xl`}
+                  >
+                    {key.charAt(0).toUpperCase() + key.slice(1)}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        </div>
+        <footer className="flex items-center justify-center bg-[#fff] w-full px-5 py-2 md:px-2 rounded-3xl">
+  <div className="flex items-center">
+    {/* Small screen size (sm) */}
+    <Image
+      src="/avatar.png"
+      alt="Logo"
+      width={35}
+      height={35}
+      className="mr-2 md:hidden lg:hidden"
+    />
+    {/* Medium screen size (md) */}
+    <Image
+      src="/avatar.png"
+      alt="Logo"
+      width={50}
+      height={50}
+      className="mr-2 hidden md:inline-block lg:hidden"
+    />
+    {/* Large screen size (lg) */}
+    <Image
+      src="/avatar.png"
+      alt="Logo"
+      width={35}
+      height={35}
+      className="mr-2 hidden lg:inline-block"
+    />
+    <span id="nameText" className="text-black font-bold text-[.7rem]  lg:text-[1.1rem] md:text-[.8rem]">
+      Mohd Khan
+    </span>
+  </div>
+</footer>
 
-      <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-balance text-sm opacity-50">
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+      </aside>
+      <main className="flex-1 bg-white p-8 transition-all duration-500">
+        {sections[activeSection]}
+      </main>
+    </div>
   );
 }
