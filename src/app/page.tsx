@@ -178,7 +178,7 @@ export default function Home() {
                 <li key={key} className="mt-4 ">
                   <a
                     href="#"
-                    onClick={() => setActiveSection(key)}
+                    onClick={() => setActiveSection(key as Section)}
                     className={`block font-semibold px-4 py-2 rounded transition-colors duration-200 hover:text-white ${
                       activeSection === key ? 'bg-gray-700  text-white' : ''
                     } text-md lg:text-xl`}
