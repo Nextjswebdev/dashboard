@@ -5,8 +5,13 @@ import Image from 'next/image';
 import 'tailwindcss/tailwind.css';
 import { FaEnvelope, FaPhoneAlt, FaMapMarkerAlt } from 'react-icons/fa'
 
+type Section = 'projects' | 'courses' | 'blog' | 'tools' | 'contact' | 'Help' | 'Products';
+
+
+
+
 export default function Home() {
-  const [activeSection, setActiveSection] = useState('projects');
+  const [activeSection, setActiveSection] = useState<Section>('projects');
 
   const sections = {
     projects: (
@@ -220,7 +225,7 @@ export default function Home() {
 
       </aside>
       <main className="flex-1 bg-white p-8 transition-all duration-500">
-        {sections[activeSection]}
+      {sections[activeSection]}
       </main>
     </div>
   );
