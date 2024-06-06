@@ -170,7 +170,7 @@ export default function Home() {
 
   return (
     <div className="flex min-h-screen bg-gray-100">
-      <aside className="flex flex-col justify-between bg-[#5cdc91] text-white p-6 max-w-[30%] lg:sm:w-1/5 sm:w-1/3">
+      <aside className="flex flex-col justify-between bg-[#5cdc91] text-white p-6 max-w-[30%] lg:w-1/5  sm:w-1/3">
         <div>
           <nav className="mt-8">
             <ul>
@@ -190,14 +190,14 @@ export default function Home() {
             </ul>
           </nav>
         </div>
-        <footer className="flex items-center justify-center bg-[#fff] w-full px-5 py-2 md:px-2 rounded-3xl">
-  <div className="flex items-center">
+        <footer className="flex items-center justify-center bg-[#fff] w-full px-5 py-2 md:px-2 rounded-3xl xs:bg-[#5cdc91]">
+  <div className="flex items-center bg-white xs:rounded-full xs:w-[80px] xs:h-[60px] xs:justify-center xs:pl-2">
     {/* Small screen size (sm) */}
     <Image
       src="/avatar.png"
       alt="Logo"
-      width={35}
-      height={35}
+      width={45}
+      height={45}
       className="mr-2 md:hidden lg:hidden"
     />
     {/* Medium screen size (md) */}
@@ -216,9 +216,9 @@ export default function Home() {
       height={35}
       className="mr-2 hidden lg:inline-block"
     />
-    <span id="nameText" className="text-black font-bold text-[.7rem]  lg:text-[1.1rem] md:text-[.8rem]">
-      Mohd Khan
-    </span>
+    <span className="text-black font-bold text-[.9rem] md:text-[1rem] lg:text-[1.1rem] xs:hidden">
+        Mohd Khan
+      </span>
   </div>
 </footer>
 
