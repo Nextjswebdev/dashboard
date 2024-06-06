@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
-import 'tailwindcss/tailwind.css';
+
 import { FaEnvelope, FaPhoneAlt, FaMapMarkerAlt } from 'react-icons/fa'
 
 type Section = 'projects' | 'courses' | 'blog' | 'tools' | 'contact' | 'Help' | 'Products';
